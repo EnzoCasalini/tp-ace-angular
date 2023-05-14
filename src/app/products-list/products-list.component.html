@@ -1,0 +1,12 @@
+<div style="text-align:center" class="content">
+  <div>
+    Chercher : <input type="text" id="search" name="search" [(ngModel)]="search">
+  </div>
+  <div>
+    La recherche : {{search}}
+  </div>
+  <a *ngFor="let product of (productsObservable | async)" [routerLink]="['product', product.id]">
+    <app-product-card [myProduct]="product">
+    </app-product-card>
+  </a>
+</div>
