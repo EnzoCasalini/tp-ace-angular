@@ -12,9 +12,9 @@ import {Observable} from "rxjs";
 })
 
 export class ProductDetailComponent implements OnInit {
-  @Input() myProduct!: Product;
   id!: number;
   myProductObservable! : Observable<any>;
+  selectedTypeLabel!: string;
 
   constructor(private productsService: ProductsService, private route: ActivatedRoute) {
     this.route.params.subscribe(
@@ -22,6 +22,21 @@ export class ProductDetailComponent implements OnInit {
           this.id = parseInt(params['id']);
         }
     )
+  }
+
+  addToCart() {
+    this.myProductObservable.subscribe(product => {
+      let cartString = localStorage.getItem('cart');
+      let cart = cartString ? JSON.parse(cartString) : [];
+
+      let productToAdd = {id : product.id, type : this.selectedTypeLabel}
+      cart.push(productToAdd);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    });
+  }
+
+  onTypeSelected(selectedTypeLabel: string) {
+    this.selectedTypeLabel = selectedTypeLabel;
   }
 
   ngOnInit() {
