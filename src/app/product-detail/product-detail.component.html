@@ -1,2 +1,10 @@
-<app-product-card [myProduct]="myProductObservable | async" (selectedTypeLabel)="onTypeSelected($event)"></app-product-card>
-<button (click)="addToCart()">Add to cart</button>
+<ng-container *ngIf="myProductObservable | async as myProduct">
+    <app-product-card [myProduct]="myProduct" (selectedTypeLabel)="onTypeSelected($event)"></app-product-card>
+</ng-container>
+
+<form (ngSubmit)="addToCart()">
+    <label for="quantity">Quantity (1-10) :</label>
+    <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" min="1" max="10">
+    <br>
+    <button type="submit">Add to cart</button>
+</form>

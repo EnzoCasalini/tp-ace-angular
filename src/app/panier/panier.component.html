@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Panier</title>
-</head>
-<body>
 <h1>Voici votre panier :</h1>
 
-<div *ngFor="let product of cart; let i = index">
-    <p>{{ getProduct(product.id).title }} : {{ productPrices[i] }}€</p>
+<div *ngFor="let product of uniqueProducts; let i = index">
+    <p>{{ product.title }} ({{ product.quantity }}) : {{ productPrices[i] }}€</p>
 </div>
 <p>Total Price : {{ totalPrice }}€</p>
 
@@ -24,5 +17,3 @@
     <br>
     <button type="submit">Commander</button>
 </form>
-</body>
-</html>
