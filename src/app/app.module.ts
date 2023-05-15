@@ -16,6 +16,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PanierComponent } from './panier/panier.component';
+import { CommandeComponent } from './commande/commande.component';
+import { ErreurComponent } from './erreur/erreur.component';
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     ProductDetailComponent,
+    PanierComponent,
+    CommandeComponent,
+    ErreurComponent,
   ],
   imports: [
     BrowserModule,
