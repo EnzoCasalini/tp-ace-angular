@@ -4,15 +4,10 @@
     <p>{{myProduct.description}}</p>
     <p *ngIf="myProduct.prices">Types disponibles :</p>
     <select (change)="onChange($event)">
-        <option *ngFor="let current of myProduct.prices" [value]="current.price">{{current.type}}</option>
+        <option *ngFor="let current of myProduct.prices; let i = index" [value]="i">{{current.type}}</option>
     </select>
     <div class="price-likes">
         <b>{{selectedType | currency: 'EUR'}}</b>
-        <p>
-            <b>{{myProduct.likes}} ❤️</b>
-            <br>
-            <button (click)="onAddLike()">Like</button>
-        </p>
         <span>{{myProduct.date_added | date: 'fullDate':'':'fr'}}</span>
     </div>
 </div>

@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Price, Product} from '../models/product.model';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Product} from '../models/product.model';
 import {ProductsService} from "../services/products.service";
 
 @Component({
@@ -7,29 +7,26 @@ import {ProductsService} from "../services/products.service";
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnChanges {
   @Input() myProduct!: Product;
+  @Output() selectedTypeLabel = new EventEmitter<string>();
 
   selectedType : number = 24.99;
 
-  // selectedObj : Price = {type: "normal", price: 24.99};
-
-/*  onChange(newValue : any) {
-    this.selectedType = newValue.target.value;
-    let a = this.myProduct.prices.find((p) => p.type === this.selectedType);
-    if (a !== undefined) {
-      this.selectedObj = a;
-    }
-  }*/
-
   constructor(private productsService: ProductsService) {}
 
-  onAddLike() {
-    this.productsService.onAddLike(this.myProduct);
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['myProduct'] && changes['myProduct'].currentValue) {
+      this.selectedType = this.myProduct.prices[0].price;
+      this.selectedTypeLabel.emit(this.myProduct.prices[0].type);
+    }
   }
 
-  onChange(newValue: any) {
-    this.selectedType = newValue.target.value;
+  onChange(event: any) {
+    let index = event.target.value;
+    this.selectedType = this.myProduct.prices[index].price;
+    this.selectedTypeLabel.emit(this.myProduct.prices[index].type);
   }
+
 
 }
