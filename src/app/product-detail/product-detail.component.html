@@ -1,1 +1,2 @@
-<app-product-card [myProduct]="myProductObservable | async"></app-product-card>
+<app-product-card [myProduct]="myProductObservable | async" (selectedTypeLabel)="onTypeSelected($event)"></app-product-card>
+<button (click)="addToCart()">Add to cart</button>
