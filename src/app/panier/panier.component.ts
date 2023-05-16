@@ -15,6 +15,8 @@ export class PanierComponent implements OnInit{
   products: any[] = [];
   productPrices: number[] = [];
   totalPrice: number = 0;
+  uniqueProducts: any[] = [];
+
 
   constructor(private router: Router, private productService: ProductsService) {
     this.productService.getAllProducts().subscribe(products => {
@@ -22,13 +24,15 @@ export class PanierComponent implements OnInit{
       this.updatePrices();
     });
   }
+
   updatePrices() {
-    this.productPrices = this.cart.map(product => this.getPriceProduct(product.id, product.type));
+    this.productPrices = this.uniqueProducts.map((product) => {
+      return parseFloat((this.getPriceProduct(product.id, product.type) * product.quantity).toFixed(2));
+    });
     this.totalPrice = this.productPrices.reduce((a, b) => a + b, 0);
   }
-  getProduct(id: number): Product {
-    return this.products.find(product => product.id === id);
-  }
+
+
   commander() {
     // Générer le numéro de commande (ici, un exemple aléatoire)
     const idCommande = Math.floor(Math.random() * 1000000);
@@ -36,14 +40,20 @@ export class PanierComponent implements OnInit{
     // Redirection vers la page de commande avec les paramètres
     this.router.navigate(['/commande', this.prenom, idCommande]);
   }
+
   getCart() {
-    // Récupérer le panier du localStorage
     let cartString = localStorage.getItem('cart');
 
-    // Convertir la chaîne JSON en tableau d'objets
     let cart = cartString ? JSON.parse(cartString) : [];
 
-    return cart;
+    for (let i = 0; i < cart.length; i++) {
+      this.productService.getOneProduct(cart[i].id).subscribe(product => {
+        cart[i] = product;
+      });
+    }
+
+    this.cart = cart;
+    this.getUniqueProducts();
   }
 
   getPriceProduct(id: number, type: string): number {
@@ -54,7 +64,6 @@ export class PanierComponent implements OnInit{
           if (price.type === type)
           {
             productPrice = price.price;
-            console.log("prix du produit : " + productPrice);
           }
         });
       }
@@ -62,15 +71,22 @@ export class PanierComponent implements OnInit{
     return productPrice;
   }
 
-  getTotalPrice(): number {
-    let totalPrice: number = 0;
-    this.cart.forEach(product => {
-      totalPrice += this.getPriceProduct(product.id, product.type);
+  getUniqueProducts() {
+    this.uniqueProducts = [];
+
+    this.cart.forEach(cartItem => {
+      const existingProduct = this.uniqueProducts.find(product => product.id === cartItem.id && product.type === cartItem.type);
+      if (existingProduct) {
+        existingProduct.quantity += cartItem.quantity;
+      } else {
+        this.uniqueProducts.push({ ...cartItem, quantity: cartItem.quantity });
+      }
     });
-    return totalPrice;
   }
+
+
   ngOnInit() {
-    this.cart = this.getCart();
+    this.getCart();
     this.updatePrices();
   }
 }

@@ -15,6 +15,7 @@ export class ProductDetailComponent implements OnInit {
   id!: number;
   myProductObservable! : Observable<any>;
   selectedTypeLabel!: string;
+  quantity: number = 1;
 
   constructor(private productsService: ProductsService, private route: ActivatedRoute) {
     this.route.params.subscribe(
@@ -29,9 +30,10 @@ export class ProductDetailComponent implements OnInit {
       let cartString = localStorage.getItem('cart');
       let cart = cartString ? JSON.parse(cartString) : [];
 
-      let productToAdd = {id : product.id, type : this.selectedTypeLabel}
+      let productToAdd = {id : product.id, type : this.selectedTypeLabel, quantity: this.quantity};
       cart.push(productToAdd);
       localStorage.setItem('cart', JSON.stringify(cart));
+      alert("Product added to cart");
     });
   }
 
