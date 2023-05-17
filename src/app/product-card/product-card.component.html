@@ -7,7 +7,9 @@
         <option *ngFor="let current of myProduct.prices; let i = index" [value]="i">{{current.type}}</option>
     </select>
     <div class="price-likes">
+        <br>
         <b>{{selectedType | currency: 'EUR'}}</b>
+        <br>
         <span>{{myProduct.date_added | date: 'fullDate':'':'fr'}}</span>
     </div>
 </div>
