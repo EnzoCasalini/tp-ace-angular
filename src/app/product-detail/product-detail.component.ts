@@ -28,6 +28,10 @@ export class ProductDetailComponent implements OnInit {
     this.myProductObservable.subscribe(product => {
       let cartString = localStorage.getItem('cart');
       let cart = cartString ? JSON.parse(cartString) : [];
+      if(this.quantity > 10) {
+        alert("You cannot add more than 10 items to cart");
+        return;
+      }
 
       let productToAdd = {id : product.id, type : this.selectedTypeLabel, quantity: this.quantity};
       cart.push(productToAdd);
