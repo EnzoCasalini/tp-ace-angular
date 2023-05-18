@@ -1,9 +1,16 @@
-/* Styles for the Panier page */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
+.panier{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
+    width: 300px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 h1 {
@@ -26,16 +33,21 @@ label {
     display: block;
     margin-bottom: 5px;
     font-size: 14px;
+    font-weight: bold;
     color: #333;
 }
 
 input[type="text"] {
-    width: 300px;
-    padding: 10px;
+    width: 90%;
+    height: auto;
     font-size: 14px;
+    font-weight: bold;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding: 10px;
 }
 
 button[type="submit"] {
@@ -50,19 +62,6 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #45a049;
-}
-
-/* Styles for the product list */
-.cart-item {
-    margin-bottom: 10px;
-}
-
-.cart-item p {
-    font-weight: bold;
-}
-
-.cart-item span {
-    color: #888;
 }
 
 .total-price {

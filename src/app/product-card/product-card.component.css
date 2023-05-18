@@ -1,0 +1,112 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.card .image {
+    width: 100%;
+    height: 100%;
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*border-radius: 5px;*/
+    /*margin-bottom: 15px;*/
+}
+
+.card .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card .description {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: "Agency FB";
+}
+
+.card .date{
+    font-size: 13px;
+    /*line-height: 1.5;*/
+    /*margin-bottom: 15px;*/
+    /*font-weight: bold;*/
+    /*font-family: "Agency FB";*/
+}
+
+.card .price {
+    font-size: 20px;
+    color: #164094;
+    margin: 10px;
+    /*padding-left: 10px;*/
+    /*margin-left: 70%;*/
+}
+
+.card .button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #164094;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    width: 90%;
+    height: 40px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-top: 10px;*/
+    /*border-radius: 3px;*/
+    /*transition: background-color 0.3s ease;*/
+}
+
+.card .button:hover {
+    background-color: #3b6bd2;
+    cursor: pointer;
+}
+
+.card .goto {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    margin: 10px;
+}
+
+.select-wrapper select {
+    width: 70%;
+    /*position: relative;*/
+    /*appearance: none;*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    cursor: pointer;
+    /*text-align: center;*/
+}
+
+.select-wrapper select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.select-wrapper select option {
+    background-color: #ffffff;
+    color: #333333;
+}

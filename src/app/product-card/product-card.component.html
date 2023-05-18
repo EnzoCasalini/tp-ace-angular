@@ -1,15 +1,27 @@
-<div class="root">
-    <h2>{{myProduct.title | uppercase}}</h2>
-    <img src={{myProduct.imageUrl}} alt="product image" width="100">
-    <p>{{myProduct.description}}</p>
-    <p *ngIf="myProduct.prices">Types disponibles :</p>
-    <select (change)="onChange($event)">
-        <option *ngFor="let current of myProduct.prices; let i = index" [value]="i">{{current.type}}</option>
-    </select>
-    <div class="price-likes">
+<div class="root card">
+    <h2 class="title">{{myProduct.title | uppercase}}</h2>
+    <img class="image" src={{myProduct.imageUrl}} alt="product image" width="100">
+    <p class="description">{{myProduct.description}}</p>
+    <span class="date">Date de sortie :
         <br>
-        <b>{{selectedType | currency: 'EUR'}}</b>
-        <br>
-        <span>{{myProduct.date_added | date: 'fullDate':'':'fr'}}</span>
+        {{myProduct.date_added | date: 'fullDate':'':'fr'}}
+    </span>
+<!--    <p *ngIf="myProduct.prices">Types disponibles :</p>-->
+    <div class="select-wrapper">
+        <select (change)="onChange($event)">
+            <option *ngFor="let current of myProduct.prices; let i = index" [value]="i">{{current.type}}</option>
+        </select>
+        <b class="price">{{selectedType | currency: 'EUR'}}</b>
     </div>
+    <button class="button">
+        <a class="goto" routerLink="/product/{{myProduct.id}}" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
+            Go to details
+        </a>
+    </button>
+<!--    <form (ngSubmit)="addToCart()">-->
+<!--        <label for="quantity">Quantity (1-10) :</label>-->
+<!--        <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" min="1" max="10">-->
+<!--        <br>-->
+<!--        <button class="button">Ajouter au panier</button>-->
+<!--    </form>-->
 </div>
