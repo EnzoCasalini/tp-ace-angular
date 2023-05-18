@@ -9,8 +9,9 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule} from "@angular/material/slider";
-import { SortByDatePipe } from './sort-by-date.pipe';
-import { SortByNamePipe } from './sort-by-name.pipe';
+import { SortByDatePipe } from './pipes/sort-by-date.pipe';
+import { SortByNamePipe } from './pipes/sort-by-name.pipe';
+import { SortByNameListPipe } from './pipes/sort-by-name-list.pipe';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,6 +28,7 @@ import { ErreurComponent } from './erreur/erreur.component';
     ProductCardComponent,
     SortByDatePipe,
     SortByNamePipe,
+    SortByNameListPipe,
     ProductsListComponent,
     HeaderComponent,
     FooterComponent,

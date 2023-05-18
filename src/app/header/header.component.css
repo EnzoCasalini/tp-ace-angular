@@ -1,0 +1,63 @@
+/* Styles for the Header */
+header {
+    background-color: #164094;
+    padding: 20px;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: auto;
+    height: 100%;
+    padding-right: 50px;
+}
+
+.menu {
+    list-style: none;
+    margin-left: 5%;
+    padding: 0;
+    display: flex;
+    flex-grow: 1;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cart {
+    /*width: 30px;*/
+    /*height: 30px;*/
+    color: white;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+    .logo img {
+        width: 0px;
+        height: 0px;
+    }
+
+    .menu li {
+        margin-right: 10px;
+    }
+
+    .menu li a {
+        font-size: 14px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+}

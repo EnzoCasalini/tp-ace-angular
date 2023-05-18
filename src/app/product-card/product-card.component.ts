@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Product} from '../models/product.model';
 import {ProductsService} from "../services/products.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-product-card',
@@ -27,6 +28,4 @@ export class ProductCardComponent implements OnChanges {
     this.selectedType = this.myProduct.prices[index].price;
     this.selectedTypeLabel.emit(this.myProduct.prices[index].type);
   }
-
-
 }
