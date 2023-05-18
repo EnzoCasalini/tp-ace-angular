@@ -29,6 +29,46 @@ const products = [
             prices : [{type: "normal", price: 24.99}],
             date_added : new Date("2021-02-03")
         },
+        {
+            id: 3,
+            title : "Figurine Pop Harry Potter",
+            description : "Figurine Funko Pop! N°01 - Harry Potter - Harry Et Sa Baguette",
+            imageUrl : "https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dw25d57a1c/images/high-res/harry_potter_1.jpg",
+            likes : 0,
+            isLiked : false,
+            prices : [{type: "normal", price: 24.99}],
+            date_added : new Date("2020-06-18")
+        },
+        {
+            id: 4,
+            title : "Figurine Pop Voldenez",
+            description : "Figurine Funko Pop! N°06 - Harry Potter - Voldemort Avec Sa Baguette",
+            imageUrl : "https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dw8bddba54/images/high-res/voldemort_1.jpg",
+            likes : 0,
+            isLiked : false,
+            prices : [{type: "normal", price: 24.99}],
+            date_added : new Date("2020-06-24")
+        },
+        {
+            id: 5,
+            title : "Figurine Pop Hermione",
+            description : "Figurine Funko Pop! N°03 - Harry Potter - Hermione Et Sa Baguette",
+            imageUrl : "https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwbe66c298/images/high-res/hermione_1_2.jpg",
+            likes : 0,
+            isLiked : false,
+            prices : [{type: "normal", price: 24.99}],
+            date_added : new Date("2020-06-21")
+        },
+        {
+            id: 6,
+            title : "Figurine Pop Ron Weasley",
+            description : "Figurine Funko Pop! N°44 - Harry Potter - Ron Weasley Avec Croutard",
+            imageUrl : "https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwd4ea79ed/images/high-res/ron_croutard_1.jpg",
+            likes : 0,
+            isLiked : false,
+            prices : [{type: "normal", price: 24.99}],
+            date_added : new Date("2020-06-25")
+        },
 ];
 
 
